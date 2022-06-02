@@ -1,0 +1,50 @@
+{
+  "system_info": {
+    "cpu_cores": 8,
+    "total_machine_memory": 33254146048,
+    "cpu_load": 6.689655172413793
+  },
+  "image_generator": {
+    "general_info": {
+      "generator_version": "GraalVM 22.2.0-dev Java 17",
+      "img_name": "hello"
+    },
+    "ressource_usage_statistics": {
+      "build_time": {
+        "total_time_sec": 28.874970166
+      },
+      "peak_rss_bytes": 3506065408
+    },
+    "analysis_phase": {
+      "total": {
+        "classes": 3850,
+        "fields": 6665,
+        "methods": 29038
+      },
+      "reflection": {
+        "classes": 28,
+        "fields": 0,
+        "methods": 332
+      },
+      "jni": {
+        "classes": 58,
+        "fields": 58,
+        "methods": 52
+      },
+      "reachability": {
+        "classes": 2839,
+        "fields": 3400,
+        "methods": 12916
+      }
+    },
+    "image_creation_phase": {
+      "image_size": {
+        "total_bytes": 13057934,
+        "code_cache_bytes": 4610048,
+        "heap_bytes": 7307264,
+        "other_bytes": 1140622,
+        "debuginfo_bytes": 0
+      }
+    }
+  }
+}

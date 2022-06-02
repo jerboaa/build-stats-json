@@ -1,0 +1,515 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "https://github.com/oracle/graal/blob/master/docs/reference-manual/native-image/build-output-example-v1.json",
+    "type": "object",
+    "default": {},
+    "title": "GraalVM build output statistics as JSON",
+    "required": [
+        "system_info",
+        "image_generator"
+    ],
+    "properties": {
+        "system_info": {
+            "type": "object",
+            "default": {},
+            "title": "Schema for system information",
+            "required": [
+                "cpu_cores",
+                "total_machine_memory"
+            ],
+            "properties": {
+                "cpu_cores": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The number of CPU cores of the build system",
+                    "examples": [
+                        8
+                    ]
+                },
+                "total_machine_memory": {
+                    "type": "integer",
+                    "default": 0,
+                    "title": "The total amount of memory available on the build system",
+                    "examples": [
+                        33254146048
+                    ]
+                },
+                "cpu_load": {
+                    "type": "number",
+                    "default": 0.0,
+                    "title": "The cpu load of the build system after image building",
+                    "examples": [
+                        6.689655172413793
+                    ]
+                }
+            },
+            "examples": [{
+                "cpu_cores": 8,
+                "total_machine_memory": 33254146048,
+                "cpu_load": 6.689655172413793
+            }]
+        },
+        "image_generator": {
+            "type": "object",
+            "default": {},
+            "title": "The schema for image generation statistics",
+            "required": [
+                "general_info",
+                "ressource_usage_statistics",
+                "analysis_phase",
+                "image_creation_phase"
+            ],
+            "properties": {
+                "general_info": {
+                    "type": "object",
+                    "default": {},
+                    "title": "General information about the image generation",
+                    "required": [
+                        "generator_version",
+                        "img_name"
+                    ],
+                    "properties": {
+                        "generator_version": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The GraalVM Version",
+                            "examples": [
+                                "GraalVM 22.2.0-dev Java 17"
+                            ]
+                        },
+                        "img_name": {
+                            "type": "string",
+                            "default": "",
+                            "title": "The native image name",
+                            "examples": [
+                                "hello"
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "generator_version": "GraalVM 22.2.0-dev Java 17",
+                        "img_name": "hello"
+                    }]
+                },
+                "ressource_usage_statistics": {
+                    "type": "object",
+                    "default": {},
+                    "title": "Schema for image generator ressource usage statistics",
+                    "required": [
+                        "build_time",
+                        "peak_rss_bytes"
+                    ],
+                    "properties": {
+                        "build_time": {
+                            "type": "object",
+                            "default": {},
+                            "title": "Schema for the build time object",
+                            "required": [
+                                "total_time_sec"
+                            ],
+                            "properties": {
+                                "total_time_sec": {
+                                    "type": "number",
+                                    "default": 0.0,
+                                    "title": "Total build time in seconds",
+                                    "examples": [
+                                        28.874970166
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "total_time_sec": 28.874970166
+                            }]
+                        },
+                        "peak_rss_bytes": {
+                            "type": "integer",
+                            "default": 0,
+                            "title": "Peak RSS value of the image generator process in bytes",
+                            "examples": [
+                                3506065408
+                            ]
+                        }
+                    },
+                    "examples": [{
+                        "build_time": {
+                            "total_time_sec": 28.874970166
+                        },
+                        "peak_rss_bytes": 3506065408
+                    }]
+                },
+                "analysis_phase": {
+                    "type": "object",
+                    "default": {},
+                    "title": "Schema for the image generator statistics of the analysis phase",
+                    "required": [
+                        "total",
+                        "reflection",
+                        "jni",
+                        "reachability"
+                    ],
+                    "properties": {
+                        "total": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The total number of executables on the classpath",
+                            "required": [
+                                "classes",
+                                "fields",
+                                "methods"
+                            ],
+                            "properties": {
+                                "classes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Total number of classes",
+                                    "examples": [
+                                        3850
+                                    ]
+                                },
+                                "fields": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Total number of fields",
+                                    "examples": [
+                                        6665
+                                    ]
+                                },
+                                "methods": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Total number of methods",
+                                    "examples": [
+                                        29038
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "classes": 3850,
+                                "fields": 6665,
+                                "methods": 29038
+                            }]
+                        },
+                        "reflection": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The number of executables registered for reflection",
+                            "required": [
+                                "classes",
+                                "fields",
+                                "methods"
+                            ],
+                            "properties": {
+                                "classes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of classes registered for reflection",
+                                    "examples": [
+                                        28
+                                    ]
+                                },
+                                "fields": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of fields registered for reflection",
+                                    "examples": [
+                                        0
+                                    ]
+                                },
+                                "methods": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of methods registered for reflection",
+                                    "examples": [
+                                        332
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "classes": 28,
+                                "fields": 0,
+                                "methods": 332
+                            }]
+                        },
+                        "jni": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The number of executables registered for JNI access",
+                            "required": [
+                                "classes",
+                                "fields",
+                                "methods"
+                            ],
+                            "properties": {
+                                "classes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of classes registered for JNI access",
+                                    "examples": [
+                                        58
+                                    ]
+                                },
+                                "fields": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of fields registered for JNI access",
+                                    "examples": [
+                                        58
+                                    ]
+                                },
+                                "methods": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of methods registered for JNI access",
+                                    "examples": [
+                                        52
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "classes": 58,
+                                "fields": 58,
+                                "methods": 52
+                            }]
+                        },
+                        "reachability": {
+                            "type": "object",
+                            "default": {},
+                            "title": "The number of reachable executables",
+                            "required": [
+                                "classes",
+                                "fields",
+                                "methods"
+                            ],
+                            "properties": {
+                                "classes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of reachable classes",
+                                    "examples": [
+                                        2839
+                                    ]
+                                },
+                                "fields": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Number of reachable fields",
+                                    "examples": [
+                                        3400
+                                    ]
+                                },
+                                "methods": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "The number of reachable methods",
+                                    "examples": [
+                                        12916
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "classes": 2839,
+                                "fields": 3400,
+                                "methods": 12916
+                            }]
+                        }
+                    },
+                    "examples": [{
+                        "total": {
+                            "classes": 3850,
+                            "fields": 6665,
+                            "methods": 29038
+                        },
+                        "reflection": {
+                            "classes": 28,
+                            "fields": 0,
+                            "methods": 332
+                        },
+                        "jni": {
+                            "classes": 58,
+                            "fields": 58,
+                            "methods": 52
+                        },
+                        "reachability": {
+                            "classes": 2839,
+                            "fields": 3400,
+                            "methods": 12916
+                        }
+                    }]
+                },
+                "image_creation_phase": {
+                    "type": "object",
+                    "default": {},
+                    "title": "Schema for statistics of the image creation phase of the image generator",
+                    "required": [
+                        "image_size"
+                    ],
+                    "properties": {
+                        "image_size": {
+                            "type": "object",
+                            "default": {},
+                            "title": "Size breakdown of the generated image",
+                            "required": [
+                                "total_bytes",
+                                "code_cache_bytes",
+                                "heap_bytes",
+                                "other_bytes",
+                                "debuginfo_bytes"
+                            ],
+                            "properties": {
+                                "total_bytes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "Total image size in bytes",
+                                    "examples": [
+                                        13057934
+                                    ]
+                                },
+                                "code_cache_bytes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "The size of the code-cache in bytes",
+                                    "examples": [
+                                        4610048
+                                    ]
+                                },
+                                "heap_bytes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "The size of the image heap in bytes",
+                                    "examples": [
+                                        7307264
+                                    ]
+                                },
+                                "other_bytes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "The size of other bytes",
+                                    "examples": [
+                                        1140622
+                                    ]
+                                },
+                                "debuginfo_bytes": {
+                                    "type": "integer",
+                                    "default": 0,
+                                    "title": "The size of the debug symbols information",
+                                    "examples": [
+                                        0
+                                    ]
+                                }
+                            },
+                            "examples": [{
+                                "total_bytes": 13057934,
+                                "code_cache_bytes": 4610048,
+                                "heap_bytes": 7307264,
+                                "other_bytes": 1140622,
+                                "debuginfo_bytes": 0
+                            }]
+                        }
+                    },
+                    "examples": [{
+                        "image_size": {
+                            "total_bytes": 13057934,
+                            "code_cache_bytes": 4610048,
+                            "heap_bytes": 7307264,
+                            "other_bytes": 1140622,
+                            "debuginfo_bytes": 0
+                        }
+                    }]
+                }
+            },
+            "examples": [{
+                "general_info": {
+                    "generator_version": "GraalVM 22.2.0-dev Java 17",
+                    "img_name": "hello"
+                },
+                "ressource_usage_statistics": {
+                    "build_time": {
+                        "total_time_sec": 28.874970166
+                    },
+                    "peak_rss_bytes": 3506065408
+                },
+                "analysis_phase": {
+                    "total": {
+                        "classes": 3850,
+                        "fields": 6665,
+                        "methods": 29038
+                    },
+                    "reflection": {
+                        "classes": 28,
+                        "fields": 0,
+                        "methods": 332
+                    },
+                    "jni": {
+                        "classes": 58,
+                        "fields": 58,
+                        "methods": 52
+                    },
+                    "reachability": {
+                        "classes": 2839,
+                        "fields": 3400,
+                        "methods": 12916
+                    }
+                },
+                "image_creation_phase": {
+                    "image_size": {
+                        "total_bytes": 13057934,
+                        "code_cache_bytes": 4610048,
+                        "heap_bytes": 7307264,
+                        "other_bytes": 1140622,
+                        "debuginfo_bytes": 0
+                    }
+                }
+            }]
+        }
+    },
+    "examples": [{
+        "system_info": {
+            "cpu_cores": 8,
+            "total_machine_memory": 33254146048,
+            "cpu_load": 6.689655172413793
+        },
+        "image_generator": {
+            "general_info": {
+                "generator_version": "GraalVM 22.2.0-dev Java 17",
+                "img_name": "hello"
+            },
+            "ressource_usage_statistics": {
+                "build_time": {
+                    "total_time_sec": 28.874970166
+                },
+                "peak_rss_bytes": 3506065408
+            },
+            "analysis_phase": {
+                "total": {
+                    "classes": 3850,
+                    "fields": 6665,
+                    "methods": 29038
+                },
+                "reflection": {
+                    "classes": 28,
+                    "fields": 0,
+                    "methods": 332
+                },
+                "jni": {
+                    "classes": 58,
+                    "fields": 58,
+                    "methods": 52
+                },
+                "reachability": {
+                    "classes": 2839,
+                    "fields": 3400,
+                    "methods": 12916
+                }
+            },
+            "image_creation_phase": {
+                "image_size": {
+                    "total_bytes": 13057934,
+                    "code_cache_bytes": 4610048,
+                    "heap_bytes": 7307264,
+                    "other_bytes": 1140622,
+                    "debuginfo_bytes": 0
+                }
+            }
+        }
+    }]
+}
