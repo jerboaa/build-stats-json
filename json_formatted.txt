@@ -1,50 +1,58 @@
 {
-  "system_info": {
-    "cpu_cores": 8,
-    "total_machine_memory": 33254146048,
-    "cpu_load": 6.689655172413793
+  "general_info": {
+    "name": "helloworld",
+    "graalvm_version": "GraalVM 22.2.0-dev Java 17 CE",
+    "java_version": "17.0.4+5-jvmci-22.2-b03",
+    "c_compiler": "gcc (linux, x86_64, 9.3.0)",
+    "garbage_collector": "Serial GC"
   },
-  "image_generator": {
-    "general_info": {
-      "generator_version": "GraalVM 22.2.0-dev Java 17",
-      "img_name": "hello"
+  "analysis_results": {
+    "classes": {
+      "total": 3850,
+      "reachable": 2839,
+      "reflection": 28,
+      "jni": 58
     },
-    "ressource_usage_statistics": {
-      "build_time": {
-        "total_time_sec": 28.874970166
-      },
+    "fields": {
+      "total": 6665,
+      "reachable": 3400,
+      "reflection": 0,
+      "jni": 58
+    },
+    "methods": {
+      "total": 29038,
+      "reachable": 12916,
+      "reflection": 332,
+      "jni": 52
+    }
+  },
+  "image_details": {
+    "total_bytes": 13057934,
+    "code_area": {
+      "bytes": 4610048,
+      "compilation_units": 67007
+    },
+    "image_heap": {
+      "bytes": 7307264,
+      "resources": {
+        "count": 134,
+        "bytes": 10200
+      }
+    },
+    "debug_info": {
+      "bytes": 1140622
+    }
+  },
+  "resource_usage": {
+    "cpu": {
+      "load": 8.38,
+      "cores_total": 10
+    },
+    "gc_count": 17,
+    "gc_time_sec": 0.9245,
+    "memory": {
+      "system_total": 33254146048,
       "peak_rss_bytes": 3506065408
-    },
-    "analysis_phase": {
-      "total": {
-        "classes": 3850,
-        "fields": 6665,
-        "methods": 29038
-      },
-      "reflection": {
-        "classes": 28,
-        "fields": 0,
-        "methods": 332
-      },
-      "jni": {
-        "classes": 58,
-        "fields": 58,
-        "methods": 52
-      },
-      "reachability": {
-        "classes": 2839,
-        "fields": 3400,
-        "methods": 12916
-      }
-    },
-    "image_creation_phase": {
-      "image_size": {
-        "total_bytes": 13057934,
-        "code_cache_bytes": 4610048,
-        "heap_bytes": 7307264,
-        "other_bytes": 1140622,
-        "debuginfo_bytes": 0
-      }
     }
   }
 }
