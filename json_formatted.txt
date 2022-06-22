@@ -46,10 +46,12 @@
   "resource_usage": {
     "cpu": {
       "load": 8.38,
-      "cores_total": 10
+      "total_cores": 10
     },
-    "gc_count": 17,
-    "gc_time_sec": 0.9245,
+    "garbage_collection": {
+      "count": 17,
+      "total_secs": 0.9245
+    },
     "memory": {
       "system_total": 33254146048,
       "peak_rss_bytes": 3506065408
